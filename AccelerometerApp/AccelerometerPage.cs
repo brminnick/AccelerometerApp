@@ -2,6 +2,7 @@
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace AccelerometerApp
 {
@@ -35,6 +36,8 @@ namespace AccelerometerApp
             grid.Children.Add(zCircularGauge, 0, 2);
 
             Content = grid;
+
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
         }
 
         protected override void OnAppearing()
@@ -61,9 +64,9 @@ namespace AccelerometerApp
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                xCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
+                xCircularGauge.Pointer.Value = e.Reading.Acceleration.X;
                 yCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
-                zCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
+                zCircularGauge.Pointer.Value = e.Reading.Acceleration.Z;
             });
         }
     }

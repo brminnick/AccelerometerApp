@@ -1,16 +1,8 @@
-# Tracking the Accelerometer with SyncFusion's Circular Gauge Control in Xamarin.Forms
-
-Recently, [Suz Hinton](https://twitter.com/intent/user?user_id=8942382) and I lead a [Xamarin + IoT Workshop](https://github.com/brminnick/XamarinIoTWorkshop) in San Francisco. In the workshop, we created a [Xamarin](https://visualstudio.microsoft.com/xamarin/?WT.mc_id=none-SyncFusionBlog-bramin) mobile app that collects gyroscope and accelerometer data using [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/?WT.mc_id=none-SyncFusionBlog-bramin) and collects in the cloud using [Azure IoT Central](https://azure.microsoft.com/services/iot-central/?WT.mc_id=none-SyncFusionBlog-bramin).
-
-| Mobile App              | IoT Central Dashboard |
-:-------------------------|:-------------------------:
-![Xamarin iOS App](https://user-images.githubusercontent.com/13558917/42401809-41173f26-812c-11e8-98f4-4703ccc062c3.gif) | ![IoT Central Dashboard](https://user-images.githubusercontent.com/13558917/42401851-6ceeae54-812c-11e8-9296-b3ddbf5e8249.png)
-
-The best part: creating the app took only a few hours, thanks to [SyncFusion's Circular Gauge](https://www.syncfusion.com/products/xamarin/circular-gauge) control!
+# Accelerometer App
 
 Let's take a look at how to implement this control in a Xamarin.Forms app.
 
-## Xamarin + SyncFusion Circular Gauge Control
+## Walkthrough
 
 ### 1. Install NuGet Packages
 

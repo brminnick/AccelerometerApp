@@ -1,4 +1,4 @@
-# Tracking the Accelerometer with SyncFusion's Circular Gauge Control in Xamarin.Forms
+# Accelerometer App
 
 Thanks to [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/?WT.mc_id=none-SyncFusionBlog-bramin) and [SyncFusion's Circular Gauge](https://www.syncfusion.com/products/xamarin/circular-gauge) control, creating a mobile app that monitors the accelerometer data has never been easier!
 

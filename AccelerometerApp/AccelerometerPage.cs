@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -60,7 +61,7 @@ namespace AccelerometerApp
             }
         }
 
-        void HandleAccelerometerReadingChanged(AccelerometerChangedEventArgs e)
+        void HandleAccelerometerReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
             Device.BeginInvokeOnMainThread(() =>
             {

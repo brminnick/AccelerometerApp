@@ -19,3 +19,4 @@ namespace AccelerometerApp.iOS
         }
     }
 }
+    

@@ -1,5 +1,4 @@
-﻿using System;
-using System.Diagnostics;
+﻿using System.Diagnostics;
 
 using Xamarin.Essentials;
 using Xamarin.Forms;
@@ -9,16 +8,16 @@ namespace AccelerometerApp
 {
     public class AccelerometerPage : ContentPage
     {
-        readonly CircularGaugeView xCircularGauge, yCircularGauge, zCircularGauge;
+        readonly CircularGaugeView _xCircularGauge, _yCircularGauge, _zCircularGauge;
 
         public AccelerometerPage()
         {
             Icon = "Accelerometer";
             Title = "Accelerometer";
 
-            xCircularGauge = new CircularGaugeView("X-Axis", -1, 1);
-            yCircularGauge = new CircularGaugeView("Y-Axis", -1, 1);
-            zCircularGauge = new CircularGaugeView("Z-Axis", -10, 10);
+            _xCircularGauge = new CircularGaugeView("X-Axis", -1, 1);
+            _yCircularGauge = new CircularGaugeView("Y-Axis", -1, 1);
+            _zCircularGauge = new CircularGaugeView("Z-Axis", -10, 10);
 
             var grid = new Grid
             {
@@ -32,9 +31,9 @@ namespace AccelerometerApp
                 new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
             }
             };
-            grid.Children.Add(xCircularGauge, 0, 0);
-            grid.Children.Add(yCircularGauge, 0, 1);
-            grid.Children.Add(zCircularGauge, 0, 2);
+            grid.Children.Add(_xCircularGauge, 0, 0);
+            grid.Children.Add(_yCircularGauge, 0, 1);
+            grid.Children.Add(_zCircularGauge, 0, 2);
 
             Content = grid;
 
@@ -65,9 +64,9 @@ namespace AccelerometerApp
         {
             Device.BeginInvokeOnMainThread(() =>
             {
-                xCircularGauge.Pointer.Value = e.Reading.Acceleration.X;
-                yCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
-                zCircularGauge.Pointer.Value = e.Reading.Acceleration.Z;
+                _xCircularGauge.Pointer.Value = e.Reading.Acceleration.X;
+                _yCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
+                _zCircularGauge.Pointer.Value = e.Reading.Acceleration.Z;
             });
         }
     }

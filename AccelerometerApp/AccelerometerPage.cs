@@ -1,5 +1,3 @@
-﻿using System.Diagnostics;
-
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
@@ -51,12 +49,12 @@ namespace AccelerometerApp
         {
             try
             {
-                Accelerometer.Start(SensorSpeed.Normal);
+                Accelerometer.Start(SensorSpeed.Default);
                 Accelerometer.ReadingChanged += HandleAccelerometerReadingChanged;
             }
             catch (FeatureNotSupportedException)
             {
-                Debug.WriteLine("Accelerometer Unavailable");
+                System.Diagnostics.Debug.WriteLine("Accelerometer Unavailable");
             }
         }
 

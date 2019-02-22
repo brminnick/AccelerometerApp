@@ -155,10 +155,10 @@
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Syncfusion.Xamarin.SfGauge">
-      <Version>16.4.0.47</Version>
+      <Version>16.4.0.54</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Forms">
-      <Version>3.4.0.1009999</Version>
+      <Version>3.5.0.169047</Version>
     </PackageReference>
     <PackageReference Include="Xamarin.Essentials">
       <Version>1.0.1</Version>

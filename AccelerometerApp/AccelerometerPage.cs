@@ -10,9 +10,6 @@ namespace AccelerometerApp
 
         public AccelerometerPage()
         {
-            Icon = "Accelerometer";
-            Title = "Accelerometer";
-
             _xCircularGauge = new CircularGaugeView("X-Axis", -1, 1);
             _yCircularGauge = new CircularGaugeView("Y-Axis", -1, 1);
             _zCircularGauge = new CircularGaugeView("Z-Axis", -10, 10);

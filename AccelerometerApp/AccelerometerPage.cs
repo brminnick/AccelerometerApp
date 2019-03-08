@@ -18,12 +18,12 @@ namespace AccelerometerApp
             {
                 Margin = new Thickness(0, 20),
                 RowDefinitions = {
-                new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
+                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
             },
                 ColumnDefinitions = {
-                new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
             }
             };
             grid.Children.Add(_xCircularGauge, 0, 0);

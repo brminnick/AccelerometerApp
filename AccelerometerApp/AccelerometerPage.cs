@@ -21,10 +21,10 @@ namespace AccelerometerApp
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
                     new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-            },
+                },
                 ColumnDefinitions = {
                     new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
-            }
+                }
             };
             grid.Children.Add(_xCircularGauge, 0, 0);
             grid.Children.Add(_yCircularGauge, 0, 1);

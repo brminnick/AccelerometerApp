@@ -1,6 +1,6 @@
 # Accelerometer App
 
-Thanks to [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/?WT.mc_id=none-SyncFusionBlog-bramin) and [SyncFusion's Circular Gauge](https://www.syncfusion.com/products/xamarin/circular-gauge) control, creating a mobile app that monitors the accelerometer data has never been easier!
+Thanks to [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials?WT.mc_id=AccelerometerApp-github-bramin) and [SyncFusion's Circular Gauge](https://www.syncfusion.com/products/xamarin/circular-gauge) control, creating a mobile app that monitors the accelerometer data has never been easier.
 
 Let's take a look at how to implement this control in a Xamarin.Forms app.
 
@@ -199,7 +199,7 @@ Brandon Minnick is a Developer Advocate at Microsoft specializing in Xamarin and
 
 ## Resources
 
-- [Xamarin](https://visualstudio.microsoft.com/xamarin/?WT.mc_id=none-SyncFusionBlog-bramin)
-- [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/?WT.mc_id=none-SyncFusionBlog-bramin)
-- [Azure IoT Central](https://azure.microsoft.com/services/iot-central/?WT.mc_id=none-SyncFusionBlog-bramin)
+- [Xamarin](https://visualstudio.microsoft.com/xamarin?WT.mc_id=AccelerometerApp-github-bramin)
+- [Xamarin.Essentials](https://docs.microsoft.com/xamarin/essentials/?WT.mc_id=AccelerometerApp-github-bramin)
+- [Azure IoT Central](https://azure.microsoft.com/services/iot-central/?WT.mc_id=AccelerometerApp-github-bramin)
 - [SyncFusion's Circular Gauge](https://www.syncfusion.com/products/xamarin/circular-gauge)

@@ -189,7 +189,7 @@ public class App : Xamarin.Forms.Application
 }
 ```
 
-## 8. Launch the app on an iOS or Android Device
+### 8. Launch the app on an iOS or Android Device
 
 ## About The Author
 

@@ -10,6 +10,8 @@ namespace AccelerometerApp
 
         public AccelerometerPage()
         {
+            InitializeAccelerometer();
+
             _xCircularGauge = new CircularGaugeView("X-Axis", -1, 1);
             _yCircularGauge = new CircularGaugeView("Y-Axis", -1, 1);
             _zCircularGauge = new CircularGaugeView("Z-Axis", -10, 10);
@@ -33,13 +35,6 @@ namespace AccelerometerApp
             Content = grid;
 
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            InitializeAccelerometer();
         }
 
         void InitializeAccelerometer()

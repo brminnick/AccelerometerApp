@@ -1,41 +1,40 @@
+using System.Linq;
 using Xamarin.Essentials;
 using Xamarin.Forms;
+using Xamarin.Forms.Markup;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-
+using static Xamarin.Forms.Markup.GridRowsColumns;
 namespace AccelerometerApp
 {
     public class AccelerometerPage : ContentPage
     {
-        readonly CircularGaugeView _xCircularGauge, _yCircularGauge, _zCircularGauge;
-
         public AccelerometerPage()
         {
             InitializeAccelerometer();
 
-            _xCircularGauge = new CircularGaugeView("X-Axis", -1, 1);
-            _yCircularGauge = new CircularGaugeView("Y-Axis", -1, 1);
-            _zCircularGauge = new CircularGaugeView("Z-Axis", -10, 10);
-
-            var grid = new Grid
+            Content = new Grid
             {
                 Margin = new Thickness(0, 20),
-                RowDefinitions = {
-                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                    new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                },
-                ColumnDefinitions = {
-                    new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+
+                RowDefinitions = Rows.Define(
+                    (Row.xGauge, Star),
+                    (Row.yGauge, Star),
+                    (Row.zGauge, Star)),
+
+                ColumnDefinitions = Columns.Define(Star),
+
+                Children =
+                {
+                    new CircularGaugeView("X-Axis", -1, 1).Row(Row.xGauge),
+                    new CircularGaugeView("Y-Axis", -1, 1).Row(Row.yGauge),
+                    new CircularGaugeView("Z-Axis", -10, 10).Row(Row.zGauge)
                 }
             };
-            grid.Children.Add(_xCircularGauge, 0, 0);
-            grid.Children.Add(_yCircularGauge, 0, 1);
-            grid.Children.Add(_zCircularGauge, 0, 2);
-
-            Content = grid;
 
             On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
         }
+
+        enum Row { xGauge, yGauge, zGauge }
 
         void InitializeAccelerometer()
         {
@@ -52,11 +51,17 @@ namespace AccelerometerApp
 
         void HandleAccelerometerReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
-            Device.BeginInvokeOnMainThread(() =>
+            var grid = (Grid)Content;
+
+            var xCircularGauge = (CircularGaugeView)grid.Children.First(x => Grid.GetRow(x) is (int)Row.xGauge);
+            var yCircularGauge = (CircularGaugeView)grid.Children.First(x => Grid.GetRow(x) is (int)Row.yGauge);
+            var zCircularGauge = (CircularGaugeView)grid.Children.First(x => Grid.GetRow(x) is (int)Row.zGauge);
+
+            MainThread.BeginInvokeOnMainThread(() =>
             {
-                _xCircularGauge.Pointer.Value = e.Reading.Acceleration.X;
-                _yCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
-                _zCircularGauge.Pointer.Value = e.Reading.Acceleration.Z;
+                xCircularGauge.Pointer.Value = e.Reading.Acceleration.X;
+                yCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
+                zCircularGauge.Pointer.Value = e.Reading.Acceleration.Z;
             });
         }
     }

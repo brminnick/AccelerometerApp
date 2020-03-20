@@ -157,7 +157,7 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Syncfusion.Xamarin.SfGauge">
-            <Version>17.4.0.53</Version>
+            <Version>18.1.0.36-beta</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.Forms">
             <Version>4.6.0.379-pre1</Version>

@@ -6,7 +6,7 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="17.4.0.53" />
+        <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="18.1.0.36-beta" />
         <PackageReference Include="Xamarin.Essentials" Version="1.5.1" />
         <PackageReference Include="Xamarin.Forms" Version="4.6.0.379-pre1" />
     </ItemGroup>

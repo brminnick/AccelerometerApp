@@ -1,9 +1,9 @@
 using System.Linq;
+using Xamarin.CommunityToolkit.Markup;
 using Xamarin.Essentials;
 using Xamarin.Forms;
-using Xamarin.Forms.Markup;
 using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
-using static Xamarin.Forms.Markup.GridRowsColumns;
+using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
 namespace AccelerometerApp
 {
     public class AccelerometerPage : ContentPage

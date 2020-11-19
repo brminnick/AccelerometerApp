@@ -57,13 +57,16 @@
     </ItemGroup>
     <ItemGroup>
         <PackageReference Include="Syncfusion.Xamarin.SfGauge">
-            <Version>18.2.0.59</Version>
+            <Version>18.3.0.50</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.Forms">
-            <Version>5.0.0.1487-pre1</Version>
+            <Version>5.0.0.1709-pre4</Version>
         </PackageReference>
         <PackageReference Include="Xamarin.Essentials">
-            <Version>1.6.0-pre2</Version>
+            <Version>1.6.0-pre4</Version>
+        </PackageReference>
+        <PackageReference Include="Xamarin.CommunityToolkit.Markup">
+          <Version>1.0.0-pre5</Version>
         </PackageReference>
     </ItemGroup>
     <ItemGroup>

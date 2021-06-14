@@ -6,10 +6,10 @@
         <Nullable>enable</Nullable>
     </PropertyGroup>
     <ItemGroup>
-        <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="18.4.0.48" />
+        <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="19.1.0.67" />
         <PackageReference Include="Xamarin.Essentials" Version="1.6.1" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
-        <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="1.1.0-pre2" />
+        <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="1.2.0-pre2" />
     </ItemGroup>
     <ItemGroup>
         <Compile Remove="MainPage.xaml.cs" />

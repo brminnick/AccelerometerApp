@@ -9,7 +9,7 @@ on:
       - "*"
 
 jobs:
-    Build_Android:
+    BuildNetStandardProject:
       runs-on: macos-latest
 
       steps:
@@ -21,4 +21,4 @@ jobs:
           
       - name: Build Android App
         run: |                    
-          mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./AccelerometerApp.Android/AccelerometerApp.Android.csproj /verbosity:normal /p:Configuration=Release
+          mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./AccelerometerApp/AccelerometerApp.csproj /verbosity:normal /p:Configuration=Release

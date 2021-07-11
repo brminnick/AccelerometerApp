@@ -73,34 +73,41 @@ public class MainActivity : global::Xamarin.Forms.Platform.Android.FormsAppCompa
 This app requires 3 instances of the Circular Gauge Control in our app, so let's start by creating an implementation of `SfCircularGauge`
 
 ```csharp
-public class CircularGaugeView : SfCircularGauge
+using System.Collections.ObjectModel;
+using Syncfusion.SfGauge.XForms;
+using Xamarin.Forms;
+
+namespace AccelerometerApp
 {
-    public CircularGaugeView(string headerText, double startValue, double endValue)
+    class CircularGaugeView : SfCircularGauge
     {
-        Pointer = new NeedlePointer { AnimationDuration = 0.5 };
-
-        var header = new Header
+        public CircularGaugeView(string headerText, double startValue, double endValue)
         {
-            Text = headerText,
-            ForegroundColor = Color.Gray
-        };
+            Pointer = new NeedlePointer { AnimationDuration = 0.5 };
 
-        var circularGaugeScale = new Scale
-        {
-            Interval = (endValue - startValue) / 10,
-            StartValue = startValue,
-            EndValue = endValue,
-            ShowTicks = true,
-            ShowLabels = true,
-            Pointers = { Pointer },
-            MinorTicksPerInterval = 4,
-        };
+            var header = new Header
+            {
+                Text = headerText,
+                ForegroundColor = Color.Gray
+            };
 
-        Scales = new ObservableCollection<Scale> { circularGaugeScale };
-        Headers = new ObservableCollection<Header> { header };
+            var circularGaugeScale = new Scale
+            {
+                Interval = (endValue - startValue) / 10,
+                StartValue = startValue,
+                EndValue = endValue,
+                ShowTicks = true,
+                ShowLabels = true,
+                Pointers = { Pointer },
+                MinorTicksPerInterval = 4,
+            };
+
+            Scales = new ObservableCollection<Scale> { circularGaugeScale };
+            Headers = new ObservableCollection<Header> { header };
+        }
+
+        public NeedlePointer Pointer { get; }
     }
-
-    public NeedlePointer Pointer { get; }
 }
 ```
 
@@ -109,68 +116,73 @@ public class CircularGaugeView : SfCircularGauge
 In the Xamarin.Forms project, create a new class, `AccelerometerPage.cs`:
 
 ```csharp
-public class AccelerometerPage : ContentPage
+using System.Linq;
+using Xamarin.CommunityToolkit.Markup;
+using Xamarin.Essentials;
+using Xamarin.Forms;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
+using static Xamarin.CommunityToolkit.Markup.GridRowsColumns;
+
+namespace AccelerometerApp
 {
-    readonly CircularGaugeView xCircularGauge, yCircularGauge, zCircularGauge;
-
-    public AccelerometerPage()
+    class AccelerometerPage : ContentPage
     {
-        Icon = "Accelerometer";
-        Title = "Accelerometer";
-
-        xCircularGauge = new CircularGaugeView("X-Axis", -1, 1);
-        yCircularGauge = new CircularGaugeView("Y-Axis", -1, 1);
-        zCircularGauge = new CircularGaugeView("Z-Axis", -10, 10);
-
-        var grid = new Grid
+        public AccelerometerPage()
         {
-            Margin = new Thickness(0, 20),
-            RowDefinitions = {
-                new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-                new RowDefinition { Height = new GridLength(1, GridUnitType.Star) },
-            },
-            ColumnDefinitions = {
-                new ColumnDefinition { Width = new GridLength(1, GridUnitType.Star) }
+            InitializeAccelerometer();
+
+            Content = new Grid
+            {
+                Margin = new Thickness(0, 20),
+
+                RowDefinitions = Rows.Define(
+                    (Row.xGauge, Star),
+                    (Row.yGauge, Star),
+                    (Row.zGauge, Star)),
+
+                ColumnDefinitions = Columns.Define(Star),
+
+                Children =
+                {
+                    new CircularGaugeView("X-Axis", -1, 1).Row(Row.xGauge),
+                    new CircularGaugeView("Y-Axis", -1, 1).Row(Row.yGauge),
+                    new CircularGaugeView("Z-Axis", -10, 10).Row(Row.zGauge)
+                }
+            };
+
+            On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
+        }
+
+        enum Row { xGauge, yGauge, zGauge }
+
+        void InitializeAccelerometer()
+        {
+            try
+            {
+                Accelerometer.Start(SensorSpeed.Default);
+                Accelerometer.ReadingChanged += HandleAccelerometerReadingChanged;
             }
-        };
-        grid.Children.Add(xCircularGauge, 0, 0);
-        grid.Children.Add(yCircularGauge, 0, 1);
-        grid.Children.Add(zCircularGauge, 0, 2);
-
-        Content = grid;
-
-        On<Xamarin.Forms.PlatformConfiguration.iOS>().SetUseSafeArea(true);
-    }
-
-    protected override void OnAppearing()
-    {
-        base.OnAppearing();
-
-        InitializeAccelerometer();
-    }
-
-    void InitializeAccelerometer()
-    {
-        try
-        {
-            Accelerometer.Start(SensorSpeed.Normal);
-            Accelerometer.ReadingChanged += HandleAccelerometerReadingChanged;
+            catch (FeatureNotSupportedException)
+            {
+                System.Diagnostics.Debug.WriteLine("Accelerometer Unavailable");
+            }
         }
-        catch (FeatureNotSupportedException)
-        {
-            Debug.WriteLine("Accelerometer Unavailable");
-        }
-    }
 
-    void HandleAccelerometerReadingChanged(AccelerometerChangedEventArgs e)
-    {
-        Device.BeginInvokeOnMainThread(() =>
+        void HandleAccelerometerReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
-            xCircularGauge.Pointer.Value = e.Reading.Acceleration.X;
-            yCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
-            zCircularGauge.Pointer.Value = e.Reading.Acceleration.Z;
-        });
+            var grid = (Grid)Content;
+
+            var xCircularGauge = (CircularGaugeView)grid.Children.First(x => Grid.GetRow(x) is (int)Row.xGauge);
+            var yCircularGauge = (CircularGaugeView)grid.Children.First(x => Grid.GetRow(x) is (int)Row.yGauge);
+            var zCircularGauge = (CircularGaugeView)grid.Children.First(x => Grid.GetRow(x) is (int)Row.zGauge);
+
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                xCircularGauge.Pointer.Value = e.Reading.Acceleration.X;
+                yCircularGauge.Pointer.Value = e.Reading.Acceleration.Y;
+                zCircularGauge.Pointer.Value = e.Reading.Acceleration.Z;
+            });
+        }
     }
 }
 ```
@@ -180,11 +192,13 @@ public class AccelerometerPage : ContentPage
 In `App.cs`, ensure that `MainPage = new AccelerometerPage();`:
 
 ```csharp
-public class App : Xamarin.Forms.Application
+using Xamarin.Forms;
+
+namespace AccelerometerApp
 {
-    public App()
+    public class App : Application
     {
-        MainPage = new AccelerometerPage();
+        public App() => MainPage = new AccelerometerPage();
     }
 }
 ```

@@ -1,12 +1,10 @@
 ﻿using System.Collections.ObjectModel;
-
 using Syncfusion.SfGauge.XForms;
-
 using Xamarin.Forms;
 
 namespace AccelerometerApp
 {
-    public class CircularGaugeView : SfCircularGauge
+    class CircularGaugeView : SfCircularGauge
     {
         public CircularGaugeView(string headerText, double startValue, double endValue)
         {

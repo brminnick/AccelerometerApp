@@ -156,7 +156,7 @@
         <Reference Include="Xamarin.iOS" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="19.3.0.43" />
+        <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="19.3.0.44" />
         <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
         <PackageReference Include="Xamarin.Forms" Version="5.0.0.2012" />
         <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="1.2.0" />

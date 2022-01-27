@@ -15,7 +15,7 @@
         <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
         <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
         <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
-        <TargetFrameworkVersion>v11.0</TargetFrameworkVersion>
+        <TargetFrameworkVersion>v12.0</TargetFrameworkVersion>
         <LangVersion>latest</LangVersion>
         <Nullable>enable</Nullable>
         <NuGetPackageImportStamp>
@@ -58,8 +58,8 @@
     <ItemGroup>
         <PackageReference Include="Syncfusion.Xamarin.SfGauge" Version="19.4.0.47" />
         <PackageReference Include="Xamarin.Essentials" Version="1.7.1" />
-        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
-        <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="1.3.2" />
+        <PackageReference Include="Xamarin.Forms" Version="5.0.0.2337" />
+        <PackageReference Include="Xamarin.CommunityToolkit.Markup" Version="2.0.0" />
     </ItemGroup>
     <ItemGroup>
         <Compile Include="MainActivity.cs" />
@@ -100,6 +100,7 @@
         <ProjectReference Include="..\AccelerometerApp\AccelerometerApp.csproj">
             <Project>{AD1BE108-5D97-457E-8615-A122C848B26D}</Project>
             <Name>AccelerometerApp</Name>
+            <ReferenceSourceTarget></ReferenceSourceTarget>
         </ProjectReference>
     </ItemGroup>
     <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />

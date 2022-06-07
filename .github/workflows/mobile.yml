@@ -21,4 +21,4 @@ jobs:
           
       - name: Build .NET Standard Projcet
         run: |                    
-          mono /Applications/Visual\ studio.app/Contents/Resources/lib/monodevelop/bin/MSBuild/Current/bin/MSBuild.dll ./AccelerometerApp/AccelerometerApp.csproj /verbosity:normal /p:Configuration=Release
+          msbuild ./AccelerometerApp/AccelerometerApp.csproj /verbosity:normal /p:Configuration=Release

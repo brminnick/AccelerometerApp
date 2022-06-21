@@ -14,11 +14,7 @@ jobs:
 
       steps:
       - uses: actions/checkout@v1
-
-      - name: Restore NuGet 
-        run: |
-          nuget restore
           
       - name: Build .NET Standard Projcet
         run: |                    
-          msbuild ./AccelerometerApp/AccelerometerApp.csproj /verbosity:normal /p:Configuration=Release
+          msbuild ./AccelerometerApp/AccelerometerApp.csproj -t:restore,build -p:RestorePackagesConfig=true /verbosity:normal /p:Configuration=Release

@@ -15,7 +15,7 @@ namespace AccelerometerApp.Droid
 {
 	
 	
-	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "12.2.0.153")]
+	[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Xamarin.Android.Build.Tasks", "13.2.0.99")]
 	public partial class Resource
 	{
 		
@@ -169,10 +169,10 @@ namespace AccelerometerApp.Droid
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTickLength = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTickLength;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTickOffset = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTickOffset;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTickSize = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTickSize;
+			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTicksPerInterval = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTicksPerInterval;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTickStartOffset = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTickStartOffset;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTickStrokeWidth = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTickStrokeWidth;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTickWidth = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTickWidth;
-			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleMinorTicksPerInterval = global::AccelerometerApp.Droid.Resource.Attribute.scaleMinorTicksPerInterval;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleNumberofDecimalDigits = global::AccelerometerApp.Droid.Resource.Attribute.scaleNumberofDecimalDigits;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleOffset = global::AccelerometerApp.Droid.Resource.Attribute.scaleOffset;
 			global::Com.Syncfusion.Gauges.Resource.Attribute.scaleOpposedPosition = global::AccelerometerApp.Droid.Resource.Attribute.scaleOpposedPosition;
@@ -369,8 +369,8 @@ namespace AccelerometerApp.Droid
 			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleMinorTickColor = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleMinorTickColor;
 			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleMinorTickLength = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleMinorTickLength;
 			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleMinorTickOffset = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleMinorTickOffset;
-			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleMinorTickStrokeWidth = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleMinorTickStrokeWidth;
 			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleMinorTicksPerInterval = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleMinorTicksPerInterval;
+			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleMinorTickStrokeWidth = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleMinorTickStrokeWidth;
 			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleOffset = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleOffset;
 			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleOpposedPosition = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleOpposedPosition;
 			global::Com.Syncfusion.Gauges.Resource.Styleable.SfLinearGauge_scaleOrientation = global::AccelerometerApp.Droid.Resource.Styleable.SfLinearGauge_scaleOrientation;
